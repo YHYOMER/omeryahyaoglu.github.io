@@ -1,6 +1,3 @@
-/* ============================================================
-   BÖLÜM 1: GLOBAL DEĞİŞKENLER & BASE STİLLER
-   ============================================================ */
 :root {
     --bg-deep: #0d1117;
     --bg-light: #1c2128;
@@ -15,13 +12,9 @@ body {
     background-color: var(--bg-deep);
     font-family: 'Inter', sans-serif;
     color: white;
-    overflow: hidden; /* Girişte scroll kapalıdır */
+    overflow: hidden; 
 }
 
-/* ============================================================
-   BÖLÜM 2: GİRİŞ SAYFASI (DOKUNULMAZ TASARIM)
-   Bu kısımdaki değerleri değiştirmek giriş ekranını bozabilir.
-   ============================================================ */
 #language-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -68,10 +61,6 @@ body {
 
 .footer-url { position: absolute; bottom: 30px; width: 100%; text-align: center; font-size: 0.75rem; color: #30363d; letter-spacing: 3px; }
 
-/* ============================================================
-   BÖLÜM 3: ANA SAYFA TASARIMI (KOMPAKT & STABİL)
-   ============================================================ */
-
 #main-content {
     display: none;
     opacity: 0;
@@ -83,7 +72,6 @@ body {
     box-sizing: border-box;
 }
 
-/* HEADER */
 .main-header {
     width: 100%;
     height: 80px;
@@ -125,7 +113,6 @@ body {
 .header-socials a { color: var(--gold); transition: 0.3s; }
 .header-socials a:hover { color: var(--turkuaz); transform: translateY(-3px); }
 
-/* CONTENT VIEW */
 .content-view {
     width: 100%;
     max-width: 900px;
@@ -148,7 +135,6 @@ body {
 .block-header { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; color: var(--gold); }
 .block-header h2 { margin: 0; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; font-size: 1.3rem; }
 
-/* KOMPAKT GRID VE KARTLAR */
 .sub-section-title { color: var(--gold); font-size: 0.9rem; font-weight: 400; margin: 30px 0 15px 0; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 .compact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px; }
 .compact-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 20px; transition: 0.3s; }
@@ -160,10 +146,13 @@ body {
 .mini-list { margin: 10px 0 0 15px; padding: 0; font-size: 0.75rem; color: var(--text-muted); }
 .desc { font-size: 0.75rem; color: var(--text-muted); }
 
-/* BUTONLAR */
 .contact-btns { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
 .action-btn { padding: 12px 30px; border-radius: 10px; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
 .action-btn.primary { background: var(--gold); color: var(--bg-deep); font-weight: 600; }
 .action-btn.secondary { border: 1px solid var(--gold); color: var(--gold); }
 
-@media (max-width: 768px) { .header-nav { display: none; } .content-block { padding: 25px; } .compact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { 
+    .header-nav { display: none; } 
+    .content-block { padding: 25px; } 
+    .compact-grid { grid-template-columns: 1fr; } 
+}
