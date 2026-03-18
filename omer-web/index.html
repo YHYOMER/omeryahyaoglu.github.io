@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömer Yahyaoğlu | Aerospace Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="language-overlay">
+    <canvas id="heritageCanvas"></canvas>
+
+    <div class="main-card">
+        <div class="logo-container">
+            <div class="logo-circle">
+                <img src="https://i.imgur.com/tseMjaY.png" alt="YHY Logo" class="logo-img">
+            </div>
+        </div>
+
+        <h1 class="name-title">ÖMER YAHYAOĞLU</h1>
+        <p class="subtitle">Aerospace Engineer | Entrepreneur</p>
+
+        <div class="lang-selection">
+            <button class="lang-btn" onclick="selectLang('tr')">TÜRKÇE</button>
+            <button class="lang-btn" onclick="selectLang('en')">ENGLISH</button>
+        </div>
+        
+        <div class="footer-url">www.omeryahyaoglu.com</div>
+    </div>
+</div>
+<div id="main-content">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <div class="header-logo-circle">
+                    <img src="https://i.imgur.com/tseMjaY.png" alt="YHY Mini Logo">
+                </div>
+                <span class="full-name">ÖMER YAHYAOĞLU</span>
+            </div>
+            <nav class="header-nav">
+                <a href="#about-section">Hakkımda</a>
+                <a href="#experience-section">Deneyim</a>
+                <a href="#projects-section">Projeler</a>
+                <a href="#contact-section">İletişim</a>
+            </nav>
+            <div class="header-socials">
+                <a href="https://www.linkedin.com/in/omeryahyaoglutr/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:omeryahyaoglu.24@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-view">
+        <h1 id="welcome-msg">Sisteme Hoş Geldiniz</h1>
+
+        <section id="about-section" class="content-block">
+            <div class="block-header">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <h2>Hakkımda</h2>
+            </div>
+            <p>TUM'da Havacılık ve Uzay Bilimleri yüksek lisansı yapan bir mühendis ve girişimci adayıyım. Teknik uzmanlığımı stratejik vizyonla birleştirerek, havacılık ve derin teknoloji alanında yenilikçi çözümler üretmeyi hedefliyorum.</p>
+        </section>
+
+        <section id="experience-section" class="content-block">
+            <div class="block-header">
+                <i class="fa-solid fa-briefcase"></i>
+                <h2>Eğitim & Deneyim</h2>
+            </div>
+
+            <h3 class="sub-section-title"><i class="fa-solid fa-graduation-cap"></i> Eğitim</h3>
+            <div class="compact-grid">
+                <div class="compact-card education-card">
+                    <span class="card-date">2025 - Devam</span>
+                    <h4>Aerospace Engineering (M.Sc.)</h4>
+                    <p class="inst">Technical University of Munich</p>
+                    <span class="badge">1. Semester</span>
+                </div>
+                <div class="compact-card education-card">
+                    <span class="card-date">2020 - 2025</span>
+                    <h4>Aerospace Engineering (B.Sc.)</h4>
+                    <p class="inst">Middle East Technical University</p>
+                    <span class="badge">GPA: 3.57/4.00</span>
+                </div>
+                <div class="compact-card education-card">
+                    <span class="card-date">2023 - 2025</span>
+                    <h4>Structural Materials (Minor)</h4>
+                    <p class="inst">Middle East Technical University</p>
+                    <span class="badge">GPA: 3.55/4.00</span>
+                </div>
+            </div>
+
+            <h3 class="sub-section-title"><i class="fa-solid fa-gears"></i> Profesyonel Deneyim</h3>
+            <div class="compact-grid">
+                <div class="compact-card work-card">
+                    <span class="card-date">2024 - 2025</span>
+                    <h4>Structural Analysis Engineer</h4>
+                    <p class="inst">ASELSAN – Ankara</p>
+                    <ul class="mini-list">
+                        <li>NASTRAN & HyperWorks</li>
+                        <li>Structural Analysis</li>
+                    </ul>
+                </div>
+                <div class="compact-card work-card">
+                    <span class="card-date">2023</span>
+                    <h4>Engineering Intern</h4>
+                    <p class="inst">TAI – Ankara</p>
+                    <ul class="mini-list">
+                        <li>Boeing Specifications</li>
+                        <li>Composite QM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="sub-section-title"><i class="fa-solid fa-microscope"></i> Akademik Araştırma</h3>
+            <div class="compact-grid">
+                <div class="compact-card research-card">
+                    <span class="card-date">2024 - 2025</span>
+                    <h4>Research Assistant</h4>
+                    <p class="inst">Prof. Dr. Ali Kalkanlı</p>
+                    <p class="desc">Al-Fe-V-Si Characterization</p>
+                </div>
+                <div class="compact-card research-card">
+                    <span class="card-date">2023 - 2024</span>
+                    <h4>Research Assistant</h4>
+                    <p class="inst">Assoc. Prof. Mustafa Perçin</p>
+                    <p class="desc">Film Cooling Geometries</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-section" class="content-block" style="text-align: center;">
+            <div class="block-header" style="justify-content: center;">
+                <i class="fa-solid fa-paper-plane"></i>
+                <h2>İletişim</h2>
+            </div>
+            <div class="contact-btns">
+                <a href="mailto:omeryahyaoglu.24@gmail.com" class="action-btn primary">Mesaj Gönder</a>
+                <a href="https://www.linkedin.com/in/omeryahyaoglutr/" target="_blank" class="action-btn secondary">LinkedIn</a>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
