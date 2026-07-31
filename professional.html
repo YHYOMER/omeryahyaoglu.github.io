@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional — Ömer Yahyaoğlu</title>
+<style>
+  :root {
+    --bg: #F1F5E3;
+    --bg-blob: #9DCB7C;
+    --ink: #1F3A22;
+    --soft: #4B6B45;
+    --accent: #E0672A;
+    --card: #FAFCF0;
+    --line: #DCE6C8;
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B2A1A; --bg-blob: #3E6B36; --ink: #EAF3DE; --soft: #A9C594; --accent: #F4884A; --card: #223822; --line: #33492E;
+  }
+  :root[data-theme="light"] {
+    --bg: #F1F5E3; --bg-blob: #9DCB7C; --ink: #1F3A22; --soft: #4B6B45; --accent: #E0672A; --card: #FAFCF0; --line: #DCE6C8;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+
+  .draft-flag {
+    text-align: center;
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--soft); padding: 10px; border-bottom: 1px dashed var(--line);
+  }
+
+  .site-nav {
+    display: flex; justify-content: flex-end; align-items: center;
+    padding: 22px clamp(20px, 5vw, 56px); font-size: 14px;
+  }
+  .site-nav .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px 26px; color: var(--soft); }
+  .site-nav .links a, .site-nav .links span { color: inherit; text-decoration: none; }
+  .site-nav .links .cur { color: var(--ink); font-weight: 700; }
+  @media (max-width: 420px) {
+    .site-nav .links { gap: 14px 18px; font-size: 13px; }
+  }
+  .fixed-name {
+    position: fixed; left: 24px; bottom: 22px; z-index: 50;
+    display: flex; align-items: center; gap: 8px;
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 800; font-size: 14px; letter-spacing: -0.01em; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); text-decoration: none;
+    padding: 8px 14px; border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  }
+  .fixed-name .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .theme-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+    color: var(--ink); background: transparent; border: 1.5px solid var(--line);
+    border-radius: 999px; padding: 14px 26px; cursor: pointer;
+  }
+  .theme-btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+
+  .full-section { width: 100%; }
+  .band-card {
+    background: linear-gradient(to bottom, var(--bg) 0, var(--card) 6px, var(--card) calc(100% - 6px), var(--bg) 100%);
+  }
+  .band-bg { background: var(--bg); }
+  .section-inner { max-width: 900px; margin: 0 auto; padding: 56px clamp(20px, 4vw, 40px); }
+  .section-label {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    margin: 0 0 18px; font-weight: 700;
+  }
+
+  /* Intro band */
+  .intro-role { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 12.5px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px; }
+  .intro-band h1 { font-size: clamp(32px, 5vw, 46px); margin: 0 0 20px; font-weight: 800; text-wrap: balance; }
+  .intro-band p.summary { font-size: 16px; line-height: 1.7; color: var(--soft); max-width: 60ch; margin: 0 0 26px; }
+  .intro-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    padding: 10px 18px; border-radius: 999px;
+  }
+  .btn-solid { background: var(--accent); color: var(--card); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+
+  /* Experience cards */
+  .exp-list { display: flex; flex-direction: column; gap: 14px; }
+  .exp-card { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; background: var(--bg); will-change: transform; }
+  .band-bg .exp-card, .band-bg .misc-card { background: var(--card); }
+  .exp-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .exp-head h3 { margin: 0; font-size: 17px; }
+  .exp-head .dates { font-size: 12px; color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .exp-org { font-size: 12.5px; color: var(--soft); margin: 0 0 12px; }
+  .exp-card ul { margin: 0; padding-left: 18px; }
+  .exp-card li { font-size: 14px; color: var(--soft); line-height: 1.6; margin-bottom: 4px; }
+  .exp-card .chip-row { margin-top: 14px; }
+  .placeholder { color: var(--soft); font-style: italic; border-bottom: 1px dashed var(--line); }
+
+  /* Grid cards: education / research / projects */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .misc-card { border: 1px solid var(--line); border-radius: 14px; padding: 20px 20px; background: var(--bg); will-change: transform; }
+  .misc-card .tag { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 10.5px; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; margin: 0 0 8px; }
+  .misc-card h3 { font-size: 15.5px; margin: 0 0 6px; line-height: 1.3; }
+  .misc-card .sub { font-size: 12px; color: var(--soft); margin: 0 0 10px; }
+  .misc-card p { font-size: 13px; color: var(--soft); line-height: 1.55; margin: 0; }
+
+  @media (max-width: 760px) {
+    .card-grid, .card-grid.cols-2 { grid-template-columns: 1fr; }
+  }
+
+  /* Skills */
+  .skill-group { margin-bottom: 22px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group .label { font-size: 12.5px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 12px; padding: 6px 13px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+  .band-bg .chip { background: var(--bg); }
+  .also-line { margin-top: 30px; font-size: 13px; color: var(--soft); border-top: 1px solid var(--line); padding-top: 20px; }
+
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 30px clamp(20px, 5vw, 56px) 54px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px;
+    font-size: 13px; color: var(--soft);
+  }
+  .contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="links">
+    <a href="index.html">Home</a>
+    <span class="cur">Professional</span>
+    <a href="hobbies.html">Hobbies</a>
+  </div>
+</nav>
+
+<a class="fixed-name" href="index.html"><span class="dot"></span>Ömer Yahyaoğlu</a>
+
+<section class="full-section intro-band">
+  <div class="section-inner">
+    <p class="intro-role">Professional</p>
+    <h1>The full picture behind the CV.</h1>
+    <p class="summary">Aerospace Engineer with a strong background in industry — striving to bring innovative ideas to the aerospace sector, and open to any kind of experience along the way.</p>
+    <div class="intro-buttons">
+      <button class="theme-btn" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="dot"></span><span class="label">Dark</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="full-section band-card">
+  <div class="section-inner">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-head"><h3>Working Student</h3><span class="dates">Apr 2026 — Current</span></div>
+        <p class="exp-org">Bauhaus Luftfahrt — Munich</p>
+        <ul>
+          <li>Preliminary design of airframes for next-generation aircraft.</li>
+          <li>Developing CPACS-integrated Python tools for automated aircraft sizing.</li>
+        </ul>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">Excel Macro</span></div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head"><h3>Founding Engineer</h3><span class="dates">Mar 2026 — Jul 2026</span></div>
+        <p class="exp-org">Kognexus — UnternehmerTUM Incubator</p>
+        <ul>
+          <li>Design and development of magnet-free robotic actuators.</li>
+          <li>Efficiency and performance analysis via parametric design modeling.</li>
+          <li>Strategic market analysis and business modeling for robotics.</li>
+        </ul>
+        <div class="chip-row"><span class="chip">MATLAB</span><span class="chip">Ansys</span><span class="chip">CAD</span><span class="chip">Business Creation</span></div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head"><h3>Structural Analysis Engineer</h3><span class="dates">Aug 2024 — Sep 2025</span></div>
+        <p class="exp-org">ASELSAN — Ankara</p>
+        <ul>
+          <li>Active use of NASTRAN and HyperWorks solvers.</li>
+          <li>Conducted material selection and structural analysis.</li>
+          <li>Collaborated with multidisciplinary teams to meet project requirements.</li>
+        </ul>
+        <div class="chip-row"><span class="chip">HyperWorks</span><span class="chip">NASTRAN</span></div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head"><h3>Engineering Intern</h3><span class="dates">Aug 2023 — Sep 2023</span></div>
+        <p class="exp-org">TAI — Ankara</p>
+        <ul>
+          <li>Assembly methods under TAI and Boeing specifications on aircraft components.</li>
+          <li>Composite material quality management and integration.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head"><h3>Volunteer Engineering Intern</h3><span class="dates">Jul 2022 — Sep 2022</span></div>
+        <p class="exp-org">Igrek Machine — Bursa</p>
+        <ul>
+          <li>Optimization of a 5-axis CNC machine.</li>
+          <li>Technical drawing of parts in NX Unigraphics and electrical schematic editing.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="full-section band-bg">
+  <div class="section-inner">
+    <p class="section-label">Education</p>
+    <div class="card-grid">
+      <div class="misc-card">
+        <p class="tag">M.Sc.</p>
+        <h3>Technical University of Munich</h3>
+        <p class="sub">Aerospace Engineering · Oct 2025 – Sep 2027</p>
+        <p>GPA 1.8/1.0 — 2nd Semester, Merit Scholar</p>
+      </div>
+      <div class="misc-card">
+        <p class="tag">B.Sc.</p>
+        <h3>Middle East Technical University</h3>
+        <p class="sub">Aerospace Engineering · Sept 2020 – Jun 2025</p>
+        <p>GPA 3.57/4.0 — High Honor</p>
+      </div>
+      <div class="misc-card">
+        <p class="tag">Minor</p>
+        <h3>Middle East Technical University</h3>
+        <p class="sub">Structural Materials · Sept 2023 – Jun 2025</p>
+        <p>GPA 3.55/4.0 — High Honor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="full-section band-card">
+  <div class="section-inner">
+    <p class="section-label">Research</p>
+    <div class="card-grid cols-2">
+      <div class="misc-card">
+        <p class="tag">Sept 2024 – Jun 2025</p>
+        <h3>Undergraduate Research Assistant</h3>
+        <p class="sub">Advisor: Prof. Dr. Ali Kalkanli</p>
+        <p>Evaluated the impact of casting methods on the structural properties of Al-Fe-V-Si alloys for aerospace applications, with material characterization via SEM, XRD, and hardness testing.</p>
+      </div>
+      <div class="misc-card">
+        <p class="tag">Sept 2023 – Sept 2024</p>
+        <h3>Undergraduate Research Assistant</h3>
+        <p class="sub">Advisor: Assoc. Prof. Mustafa Percin</p>
+        <p>Researched film cooling geometries used in turbomachinery combustion chambers, and developed calibration/optimization tools for aerodynamic test measurement instruments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="full-section band-bg">
+  <div class="section-inner">
+    <p class="section-label">Social</p>
+    <div class="card-grid cols-2">
+      <div class="misc-card">
+        <p class="tag">Entrepreneurship</p>
+        <h3>UnternehmerTUM Incubator</h3>
+        <p class="sub">Munich</p>
+        <p>Incubation support behind Kognexus, part of TUM's entrepreneurship ecosystem.</p>
+      </div>
+      <div class="misc-card">
+        <p class="tag">Community</p>
+        <h3>IAESTE Career Coordinator</h3>
+        <p class="sub">2021 – 2023</p>
+        <p>Coordinated university career fairs and represented the community abroad, in Norway and Germany.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="full-section band-card">
+  <div class="section-inner">
+    <p class="section-label">Languages</p>
+    <div class="skill-group">
+      <div class="chip-row">
+        <span class="chip">Turkish — native</span>
+        <span class="chip">Arabic — native</span>
+        <span class="chip">English — C1</span>
+        <span class="chip">Chinese — HSK2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <span>Ömer Yahyaoğlu — Munich, DE</span>
+  <div class="contact-buttons">
+    <a class="btn btn-solid" href="mailto:omeryahyaoglu.24@gmail.com">Email me</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/omeryahyaoglutr/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.exp-card, .misc-card'));
+  if (reduceMotion || !cards.length) return;
+
+  var target = { x: 0, y: 0 };
+  var current = { x: 0, y: 0 };
+  var raf = null;
+  var mults = cards.map(function (_, i) { return 4 + (i % 3) * 3; });
+
+  window.addEventListener('mousemove', function (e) {
+    target.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    target.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    if (!raf) raf = requestAnimationFrame(tick);
+  });
+
+  function tick() {
+    current.x += (target.x - current.x) * 0.06;
+    current.y += (target.y - current.y) * 0.06;
+
+    cards.forEach(function (card, i) {
+      var m = mults[i];
+      card.style.transform = 'translate(' + (current.x * m) + 'px,' + (current.y * m * 0.7) + 'px)';
+    });
+
+    if (Math.abs(target.x - current.x) > 0.001 || Math.abs(target.y - current.y) > 0.001) {
+      raf = requestAnimationFrame(tick);
+    } else {
+      raf = null;
+    }
+  }
+})();
+
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  var label = btn.querySelector('.label');
+  var mode = localStorage.getItem('site-theme') || 'light';
+
+  apply();
+
+  btn.addEventListener('click', function () {
+    mode = mode === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('site-theme', mode);
+    apply();
+  });
+
+  function apply() {
+    root.setAttribute('data-theme', mode);
+    label.textContent = mode === 'dark' ? 'Light' : 'Dark';
+  }
+})();
+</script>
+
+</body>
+</html>
